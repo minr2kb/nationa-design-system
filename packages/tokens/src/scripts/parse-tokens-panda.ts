@@ -1,14 +1,17 @@
 import { join } from 'path'
 import { getTokens } from './utils/get-tokens'
 import { writeFile } from 'fs/promises'
-import { formatLeafValue } from './utils/format-leaf-value'
+import formatLeafValue from './utils/format-leaf-value'
 import getTokensFileString from './utils/get-tokens-file-string'
+import { toPixel, toRem } from './utils/token-transforms'
 
-// light/dark 테마를 합친 semantic 색상 타입
 type PandaLeaf = { value: string | { base: string; _dark: string } }
 type PandaTree = Tree<PandaLeaf>
 
-// callback의 value 타입이 LeafValueOf<T>로 추론되고, 결과를 { value: R }로 래핑
+/**
+ * 토큰 트리의 leaf `$value`를 변환하여 Panda CSS 형식 `{ value: R }`으로 래핑
+ * @param callback 생략 시 `$value`를 그대로 사용
+ */
 export const formatPandaLeafValue = <T extends object, R>(
   tokens: T,
   callback: (value: LeafValueOf<T>) => R = (value) => value as R,
@@ -16,28 +19,14 @@ export const formatPandaLeafValue = <T extends object, R>(
   return formatLeafValue(tokens, (value) => ({ value: callback(value) })) as PandaTree
 }
 
-// shadow $value(Value2) → { value: 'xpx ypx blurpx spreadpx color' }
-// Value2의 프로퍼티를 직접 접근하므로 formatPandaLeafValue 대신 직접 구성
+/** Shadow 토큰 → `'xpx ypx blurpx spreadpx color'` */
 const flattenShadow = (shadow: RawTokens['shadow']) =>
   formatPandaLeafValue(
     shadow,
     ({ x, y, blur, spread, color }) => `${x}px ${y}px ${blur}px ${spread}px ${color.replace('.semantic', '')}`,
   )
 
-// 숫자 문자열 $value → { value: '${n}px' }
-const getPixelValues = <T extends object>(tokens: T) => formatPandaLeafValue(tokens, (value) => `${value}px`)
-
-// 숫자 문자열 $value → { value: '${n/16}rem' }
-const getRemValues = <T extends object>(tokens: T) =>
-  formatPandaLeafValue(tokens, (value) => `${Number(value) / 16}rem`)
-
-// semantic color 참조에서 '.primitive' 제거
-// LeafValueOf<Semantic> = string → value 타입이 string으로 추론
-const removePrimitive = (colors: RawTokens['colors']['semantic']) =>
-  formatPandaLeafValue(colors, (value) => value.replace('.primitive', ''))
-
-// typography $value(Value) → { value: { fontFamily, fontWeight, ... } } (참조 prefix 정리)
-// LeafValueOf<Typography> = Value → value 타입이 Value로 추론, Object.entries 직접 사용 가능
+/** Typography 토큰 → `{ fontFamily, fontWeight, ... }` 객체 (참조 prefix 정리) */
 const flattenTypography = (typography: RawTokens['typography']) =>
   formatPandaLeafValue(typography, (value) =>
     Object.entries(value).reduce<Record<string, string>>((acc, [k, v]) => {
@@ -46,8 +35,15 @@ const flattenTypography = (typography: RawTokens['typography']) =>
     }, {}),
   )
 
-// light/dark 테마 값 합치기
-// { value: 'lightColor' } + { value: 'darkColor' } → { value: { base, _dark } }
+/** Semantic color 참조 문자열에서 `.primitive` 제거 (`{colors.primitive.red}` → `{colors.red}`) */
+const removePrimitive = (colors: RawTokens['colors']['semantic']) =>
+  formatPandaLeafValue(colors, (value) => value.replace('.primitive', ''))
+
+/**
+ * light/dark 트리를 합쳐 Panda CSS 조건 토큰 생성
+ * - `base === _dark` → `{ value: base }` (단일 값)
+ * - `base !== _dark` → `{ value: { base, _dark } }` (조건 값)
+ */
 const combineThemeValues = (lightValues: PandaTree, darkValues: PandaTree): PandaTree => {
   const combined: PandaTree = {}
 
@@ -97,12 +93,12 @@ const parseTokens = async () => {
 
   const primitive = {
     colors: formatPandaLeafValue(colors.primitive),
-    borderWidths: getPixelValues(borderWidth),
-    spacing: getRemValues(spacing),
-    radii: getPixelValues(radii),
-    fontSizes: getRemValues(fontSize),
-    letterSpacings: getPixelValues(letterSpacing),
-    lineHeights: getRemValues(lineHeight),
+    borderWidths: formatPandaLeafValue(borderWidth, toPixel),
+    spacing: formatPandaLeafValue(spacing, toRem),
+    radii: formatPandaLeafValue(radii, toPixel),
+    fontSizes: formatPandaLeafValue(fontSize, toRem),
+    letterSpacings: formatPandaLeafValue(letterSpacing, toRem),
+    lineHeights: formatPandaLeafValue(lineHeight, toRem),
     fontWeights: formatPandaLeafValue(fontWeight),
     fonts: formatPandaLeafValue(fontFamily),
     // textDecorations: textDecoration,
