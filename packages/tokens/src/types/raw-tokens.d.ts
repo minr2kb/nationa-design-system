@@ -1,6 +1,6 @@
 // This file is auto-generated from tokens.json
 
-interface RawTokens {
+type RawTokens = {
   colors: Colors;
   typography: Typography;
   fontWeight: FontWeight;
@@ -17,15 +17,15 @@ interface RawTokens {
   paragraphIndent: ParagraphIndent;
 }
 
-interface ParagraphIndent {
+type ParagraphIndent = {
   '0': _0;
 }
 
-interface TextCase {
+type TextCase = {
   none: _0;
 }
 
-interface FontFamily {
+type FontFamily = {
   freeman: _0;
   dmSans: _0;
   pretendard: _0;
@@ -33,16 +33,17 @@ interface FontFamily {
   inter: _0;
 }
 
-interface Shadow2 {
+type Shadow2 = {
   raised: Raised;
   overlay: Raised;
 }
 
-interface Raised {
-  value: Value2;
+type Raised = {
+  '$type': string;
+  '$value': Value2;
 }
 
-interface Value2 {
+type Value2 = {
   x: string;
   y: string;
   blur: string;
@@ -51,7 +52,7 @@ interface Value2 {
   type: string;
 }
 
-interface Spacing {
+type Spacing = {
   '0': _0;
   '1': _0;
   '2': _0;
@@ -69,14 +70,14 @@ interface Spacing {
   '160': _0;
 }
 
-interface BorderWidth {
+type BorderWidth = {
   none: _0;
   sm: _0;
   md: _0;
   lg: _0;
 }
 
-interface Radii {
+type Radii = {
   none: _0;
   xs: _0;
   sm: _0;
@@ -85,7 +86,7 @@ interface Radii {
   full: _0;
 }
 
-interface LetterSpacing {
+type LetterSpacing = {
   xs: _0;
   sm: _0;
   md: _0;
@@ -95,7 +96,7 @@ interface LetterSpacing {
   '3xl': _0;
 }
 
-interface LineHeight {
+type LineHeight = {
   md: _0;
   lg: _0;
   xl: _0;
@@ -105,7 +106,7 @@ interface LineHeight {
   '5xl': _0;
 }
 
-interface FontSize {
+type FontSize = {
   xs: _0;
   sm: _0;
   md: _0;
@@ -116,20 +117,20 @@ interface FontSize {
   '4xl': _0;
 }
 
-interface TextDecoration {
+type TextDecoration = {
   underline: _0;
   none: _0;
   lineThrough: _0;
 }
 
-interface FontWeight {
+type FontWeight = {
   regular: _0;
   medium: _0;
   semibold: _0;
   bold: _0;
 }
 
-interface Typography {
+type Typography = {
   body: Body;
   label: Label;
   title: Body;
@@ -139,89 +140,90 @@ interface Typography {
   kr: En;
 }
 
-interface En {
+type En = {
   title: Title;
   text: Text;
   label: Label2;
 }
 
-interface Label2 {
+type Label2 = {
   caption: Caption;
 }
 
-interface Caption {
+type Caption = {
   '10': _10;
   '12': _10;
   '14': _142;
 }
 
-interface _142 {
+type _142 = {
   semibold: Md;
 }
 
-interface _10 {
+type _10 = {
   regular: Md;
   semibold: Md;
 }
 
-interface Text {
+type Text = {
   chat: Chat;
   body: Chat;
 }
 
-interface Chat {
+type Chat = {
   '14': _14;
   '16': _14;
 }
 
-interface _14 {
+type _14 = {
   bold: Md;
   regular: Md;
 }
 
-interface Title {
+type Title = {
   main: Main;
   sub: Sub;
 }
 
-interface Sub {
+type Sub = {
   '16': _22;
   '18': _22;
   '20': _22;
 }
 
-interface Main {
+type Main = {
   '22': _22;
   '24': _22;
   '30': _22;
   '56': _22;
 }
 
-interface _22 {
+type _22 = {
   bold: Md;
 }
 
-interface Display {
+type Display = {
   md: Md;
   lg: Md;
 }
 
-interface Label {
+type Label = {
   sm: Md;
   md: Md;
 }
 
-interface Body {
+type Body = {
   md: Md;
   lg: Md;
   sm: Md;
 }
 
-interface Md {
-  value: Value;
+type Md = {
+  '$type': string;
+  '$value': Value;
 }
 
-interface Value {
+type Value = {
   fontFamily: string;
   fontWeight: string;
   fontSize: string;
@@ -229,12 +231,12 @@ interface Value {
   letterSpacing: string;
 }
 
-interface Colors {
+type Colors = {
   primitive: Primitive;
   semantic: Semantic;
 }
 
-interface Semantic {
+type Semantic = {
   content: Content;
   background: Background;
   surface: Surface;
@@ -244,7 +246,7 @@ interface Semantic {
   border: Border;
 }
 
-interface Border {
+type Border = {
   neutral: Neutral4;
   neuroidPrimary: Danger;
   danger: Danger;
@@ -256,29 +258,29 @@ interface Border {
   heybeePrimary: Danger;
 }
 
-interface Neutral4 {
+type Neutral4 = {
   default: _0;
   subtle: _0;
   disabled: _0;
 }
 
-interface Skeleton {
+type Skeleton = {
   default: _0;
   subtle: _0;
 }
 
-interface Shadow {
+type Shadow = {
   overlay: _0;
   raised: _0;
 }
 
-interface Surface {
+type Surface = {
   base: _0;
   layer_1: _0;
   layer_2: _0;
 }
 
-interface Background {
+type Background = {
   neutral: Neutral3;
   neuroidPrimary: NeuroidPrimary2;
   neuroidSecondary: NeuroidPrimary2;
@@ -296,30 +298,30 @@ interface Background {
   v3: Danger;
 }
 
-interface Static2 {
+type Static2 = {
   whiteAlpha: WhiteAlpha;
   blackAlpha: WhiteAlpha;
 }
 
-interface WhiteAlpha {
+type WhiteAlpha = {
   bold: _0;
   default: _0;
   selected: _0;
   disabled: _0;
 }
 
-interface NeuroidPrimary2 {
+type NeuroidPrimary2 = {
   default: _0;
   selected: _0;
 }
 
-interface Neutral3 {
+type Neutral3 = {
   default: _0;
   selected: _0;
   disabled: _0;
 }
 
-interface Content {
+type Content = {
   neutral: Neutral2;
   neuroidPrimary: NeuroidPrimary;
   danger: Danger;
@@ -333,12 +335,12 @@ interface Content {
   neutralInverse: Neutral2;
 }
 
-interface Static {
+type Static = {
   white: White2;
   black: White2;
 }
 
-interface White2 {
+type White2 = {
   bold: _0;
   default: _0;
   subtle: _0;
@@ -346,16 +348,16 @@ interface White2 {
   disabled: _0;
 }
 
-interface Danger {
+type Danger = {
   default: _0;
 }
 
-interface NeuroidPrimary {
+type NeuroidPrimary = {
   default: _0;
   default_inverse: _0;
 }
 
-interface Neutral2 {
+type Neutral2 = {
   bold: _0;
   default: _0;
   subtle: _0;
@@ -364,7 +366,7 @@ interface Neutral2 {
   default_inverse: _0;
 }
 
-interface Primitive {
+type Primitive = {
   neutral: Neutral;
   black: Black;
   white: White;
@@ -379,11 +381,11 @@ interface Primitive {
   v3: V3;
 }
 
-interface V3 {
+type V3 = {
   blue: _0;
 }
 
-interface Red {
+type Red = {
   '100': _0;
   '200': _0;
   '300': _0;
@@ -396,7 +398,7 @@ interface Red {
   '1000': _0;
 }
 
-interface White {
+type White = {
   '1000A': _0;
   '900A': _0;
   '800A': _0;
@@ -409,7 +411,7 @@ interface White {
   '100A': _0;
 }
 
-interface Black {
+type Black = {
   '700A': _0;
   '600A': _0;
   '500A': _0;
@@ -419,7 +421,7 @@ interface Black {
   '100A': _0;
 }
 
-interface Neutral {
+type Neutral = {
   '0': _0;
   '100': _0;
   '200': _0;
@@ -436,6 +438,7 @@ interface Neutral {
   '1200': _0;
 }
 
-interface _0 {
-  value: string;
+type _0 = {
+  '$type': string;
+  '$value': string;
 }

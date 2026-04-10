@@ -1,7 +1,7 @@
 import { writeFile } from 'fs/promises'
 import { join } from 'path'
 import JsonToTS from 'json-to-ts'
-import { getTokens } from './get-tokens'
+import { getTokens } from './utils/get-tokens'
 
 const generateTokenTypes = async () => {
   try {
@@ -9,7 +9,7 @@ const generateTokenTypes = async () => {
     const tokens = await getTokens()
 
     // json-to-ts를 사용하여 타입 생성
-    const interfaces = JsonToTS(tokens, { rootName: 'RawTokens' }).join('\n\n')
+    const interfaces = JsonToTS(tokens, { rootName: 'RawTokens', useTypeAlias: true }).join('\n\n')
     const typescript = `// This file is auto-generated from tokens.json\n\n${interfaces}`
 
     // types.ts 파일 생성

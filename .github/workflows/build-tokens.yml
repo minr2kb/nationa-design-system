@@ -1,0 +1,38 @@
+name: Build Tokens
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'tokens.json'
+
+jobs:
+  build-tokens:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 9.15.3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'pnpm'
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm build:tokens
+
+      - name: Commit build output
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add packages/tokens/src/tokens/ packages/tokens/src/types/ packages/tokens/dist/
+          git diff --cached --quiet || git commit -m "chore: build tokens from updated tokens.json"
+          git push origin main

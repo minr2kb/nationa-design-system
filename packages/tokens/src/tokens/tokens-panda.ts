@@ -47,10 +47,7 @@ const semantic = {
           },
         },
         default_inverse: {
-          value: {
-            base: '{colors.purple.800}',
-            _dark: '{colors.purple.800}',
-          },
+          value: '{colors.purple.800}',
         },
       },
       danger: {
@@ -93,10 +90,7 @@ const semantic = {
           },
         },
         default_inverse: {
-          value: {
-            base: '{colors.ohre.1000}',
-            _dark: '{colors.ohre.1000}',
-          },
+          value: '{colors.ohre.1000}',
         },
       },
       heydPrimary: {
@@ -107,75 +101,42 @@ const semantic = {
           },
         },
         default_inverse: {
-          value: {
-            base: '{colors.cyan.1000}',
-            _dark: '{colors.cyan.1000}',
-          },
+          value: '{colors.cyan.1000}',
         },
       },
       static: {
         white: {
           bold: {
-            value: {
-              base: '{colors.neutral.1200}',
-              _dark: '{colors.neutral.1200}',
-            },
+            value: '{colors.neutral.1200}',
           },
           default: {
-            value: {
-              base: '{colors.neutral.1050}',
-              _dark: '{colors.neutral.1050}',
-            },
+            value: '{colors.neutral.1050}',
           },
           subtle: {
-            value: {
-              base: '{colors.neutral.1000}',
-              _dark: '{colors.neutral.1000}',
-            },
+            value: '{colors.neutral.1000}',
           },
           subtlest: {
-            value: {
-              base: '{colors.neutral.900}',
-              _dark: '{colors.neutral.900}',
-            },
+            value: '{colors.neutral.900}',
           },
           disabled: {
-            value: {
-              base: '{colors.neutral.800}',
-              _dark: '{colors.neutral.800}',
-            },
+            value: '{colors.neutral.800}',
           },
         },
         black: {
           bold: {
-            value: {
-              base: '{colors.neutral.0}',
-              _dark: '{colors.neutral.0}',
-            },
+            value: '{colors.neutral.0}',
           },
           default: {
-            value: {
-              base: '{colors.neutral.200}',
-              _dark: '{colors.neutral.200}',
-            },
+            value: '{colors.neutral.200}',
           },
           subtle: {
-            value: {
-              base: '{colors.neutral.400}',
-              _dark: '{colors.neutral.400}',
-            },
+            value: '{colors.neutral.400}',
           },
           subtlest: {
-            value: {
-              base: '{colors.neutral.600}',
-              _dark: '{colors.neutral.600}',
-            },
+            value: '{colors.neutral.600}',
           },
           disabled: {
-            value: {
-              base: '{colors.neutral.800}',
-              _dark: '{colors.neutral.800}',
-            },
+            value: '{colors.neutral.800}',
           },
         },
       },
@@ -187,10 +148,7 @@ const semantic = {
           },
         },
         default_inverse: {
-          value: {
-            base: '{colors.yellow.1000}',
-            _dark: '{colors.yellow.1000}',
-          },
+          value: '{colors.yellow.1000}',
         },
       },
       neutralInverse: {
@@ -339,126 +297,72 @@ const semantic = {
       },
       zoltarinaPrimary: {
         default: {
-          value: {
-            base: '{colors.ohre.400}',
-            _dark: '{colors.ohre.400}',
-          },
+          value: '{colors.ohre.400}',
         },
         selected: {
-          value: {
-            base: '{colors.ohre.500}',
-            _dark: '{colors.ohre.500}',
-          },
+          value: '{colors.ohre.500}',
         },
       },
       zoltarinaSecondary: {
         default: {
-          value: {
-            base: '{colors.ohre.200}',
-            _dark: '{colors.ohre.200}',
-          },
+          value: '{colors.ohre.200}',
         },
         selected: {
-          value: {
-            base: '{colors.ohre.300}',
-            _dark: '{colors.ohre.300}',
-          },
+          value: '{colors.ohre.300}',
         },
       },
       heydPrimary: {
         default: {
-          value: {
-            base: '{colors.cyan.500}',
-            _dark: '{colors.cyan.500}',
-          },
+          value: '{colors.cyan.500}',
         },
         selected: {
-          value: {
-            base: '{colors.cyan.600}',
-            _dark: '{colors.cyan.600}',
-          },
+          value: '{colors.cyan.600}',
         },
       },
       heydSecondary: {
         default: {
-          value: {
-            base: '{colors.cyan.200}',
-            _dark: '{colors.cyan.200}',
-          },
+          value: '{colors.cyan.200}',
         },
         selected: {
-          value: {
-            base: '{colors.cyan.300}',
-            _dark: '{colors.cyan.300}',
-          },
+          value: '{colors.cyan.300}',
         },
       },
       static: {
         whiteAlpha: {
           bold: {
-            value: {
-              base: '{colors.white.800A}',
-              _dark: '{colors.white.800A}',
-            },
+            value: '{colors.white.800A}',
           },
           default: {
-            value: {
-              base: '{colors.white.500A}',
-              _dark: '{colors.white.500A}',
-            },
+            value: '{colors.white.500A}',
           },
           selected: {
-            value: {
-              base: '{colors.white.600A}',
-              _dark: '{colors.white.600A}',
-            },
+            value: '{colors.white.600A}',
           },
           disabled: {
-            value: {
-              base: '{colors.white.500A}',
-              _dark: '{colors.white.500A}',
-            },
+            value: '{colors.white.500A}',
           },
         },
         blackAlpha: {
           bold: {
-            value: {
-              base: '{colors.black.700A}',
-              _dark: '{colors.black.700A}',
-            },
+            value: '{colors.black.700A}',
           },
           default: {
-            value: {
-              base: '{colors.black.500A}',
-              _dark: '{colors.black.500A}',
-            },
+            value: '{colors.black.500A}',
           },
           selected: {
-            value: {
-              base: '{colors.black.600A}',
-              _dark: '{colors.black.600A}',
-            },
+            value: '{colors.black.600A}',
           },
           disabled: {
-            value: {
-              base: '{colors.black.500A}',
-              _dark: '{colors.black.500A}',
-            },
+            value: '{colors.black.500A}',
           },
         },
       },
       heybeePrimary: {
         default: {
-          value: {
-            base: '{colors.yellow.500}',
-            _dark: '{colors.yellow.500}',
-          },
+          value: '{colors.yellow.500}',
         },
         selected: {
-          value: {
-            base: '{colors.yellow.600}',
-            _dark: '{colors.yellow.600}',
-          },
+          value: '{colors.yellow.600}',
         },
       },
       neutralInverse: {
@@ -483,10 +387,7 @@ const semantic = {
       },
       v3: {
         default: {
-          value: {
-            base: '#404040',
-            _dark: '#404040',
-          },
+          value: '#404040',
         },
       },
     },
@@ -526,10 +427,7 @@ const semantic = {
     },
     scrim: {
       default: {
-        value: {
-          base: '{colors.black.600A}',
-          _dark: '{colors.black.600A}',
-        },
+        value: '{colors.black.600A}',
       },
     },
     skeleton: {
