@@ -1012,25 +1012,25 @@ const primitive = {
   },
   letterSpacings: {
     xs: {
-      value: '-1.5px',
+      value: '-0.09375rem',
     },
     sm: {
-      value: '-1.2px',
+      value: '-0.075rem',
     },
     md: {
-      value: '-1px',
+      value: '-0.0625rem',
     },
     lg: {
-      value: '-0.8px',
+      value: '-0.05rem',
     },
     xl: {
-      value: '-0.6px',
+      value: '-0.0375rem',
     },
     '2xl': {
-      value: '-0.4px',
+      value: '-0.025rem',
     },
     '3xl': {
-      value: '-0.2px',
+      value: '-0.0125rem',
     },
   },
   lineHeights: {

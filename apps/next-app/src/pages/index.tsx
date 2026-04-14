@@ -167,7 +167,7 @@ export default function Home() {
       <Flex wrap="wrap">
         {Object.entries({ ...Icons, ...IconsV3 }).map(([key, Icon]) => (
           <IconButton key={key} variant="light">
-            <Icon />
+            <Icon color="blue" />
           </IconButton>
         ))}
       </Flex>

@@ -63,6 +63,7 @@ export { default as LikeFillIcon } from './LikeFillIcon';
 export { default as LikeOutlineIcon } from './LikeOutlineIcon';
 export { default as LinkOutlineIcon } from './LinkOutlineIcon';
 export { default as LinkedinFillIcon } from './LinkedinFillIcon';
+export { default as LoadingIcon } from './LoadingIcon';
 export { default as LocationOutlineIcon } from './LocationOutlineIcon';
 export { default as LockOffOutlineIcon } from './LockOffOutlineIcon';
 export { default as LockOnOutlineIcon } from './LockOnOutlineIcon';
