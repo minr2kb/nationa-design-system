@@ -10,6 +10,7 @@ import {
   Flex,
   Toast,
   Box,
+  HStack,
 } from '@nation-a/ui'
 
 import * as Icons from '@nation-a/icons'
@@ -98,9 +99,10 @@ export default function Home() {
   }
   return (
     <div className={`flex flex-col gap-4 p-4 light dark bg-black ${fontClasses}`}>
-      <Flex>
+      <HStack gap={5}>
         <Button onClick={aa}>Show Toast</Button>
-      </Flex>
+        <Button onClick={aa}>Show Toast</Button>
+      </HStack>
       <Button onClick={() => setOpen(true)}>Open sheet</Button>
       <Box className={css({ width: 100, height: 100 })}>
         <Text>Hello</Text>
@@ -167,7 +169,7 @@ export default function Home() {
       <Flex wrap="wrap">
         {Object.entries({ ...Icons, ...IconsV3 }).map(([key, Icon]) => (
           <IconButton key={key} variant="light">
-            <Icon color="blue" />
+            <Icon color="white" />
           </IconButton>
         ))}
       </Flex>

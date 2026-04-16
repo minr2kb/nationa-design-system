@@ -10,7 +10,6 @@
   "scripts": {
     "clean": "rm -rf src/components",
     "gen:icons": "tsx src/scripts/generate-icons.ts",
-    "gen:icons-svgr": "tsx src/scripts/generate-icons-svgr.ts",
     "gen:index": "tsx src/scripts/create-index.ts",
     "prebuild": "pnpm clean && pnpm gen:icons && pnpm gen:index",
     "build": "tsup"

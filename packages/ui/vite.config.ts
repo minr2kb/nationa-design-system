@@ -10,7 +10,7 @@ const isStorybook = process.env.VITE_IS_STORYBOOK === 'true'
 export default defineVitestConfig({
   optimizeDeps: {
     exclude: isStorybook ? [] : ['react', 'react-dom'],
-    include: ['@pandacss/dev', '@ark-ui/react'],
+    include: ['@ark-ui/react'],
   },
   plugins: [
     react(),
@@ -22,7 +22,7 @@ export default defineVitestConfig({
       outDir: 'dist/types',
       copyDtsFiles: true,
       include: ['src/**/*', 'styled-system/**/*'],
-      bundledPackages: ['@pandacss/dev', '@ark-ui/react'],
+      bundledPackages: ['@ark-ui/react'],
 
       compilerOptions: {
         preserveSymlinks: true,
@@ -50,7 +50,7 @@ export default defineVitestConfig({
     rollupOptions: {
       external: isStorybook
         ? []
-        : ['react', 'react-dom', /react-dom\/.*/, /^react\/.*/, '@nation-a/icons', '@nation-a/tokens'],
+        : ['react', 'react-dom', /react-dom\/.*/, /^react\/.*/, '@nation-a/icons', '@nation-a/tokens', '@pandacss/dev'],
       output: {
         inlineDynamicImports: false,
         manualChunks: {
