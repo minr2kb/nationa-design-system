@@ -8,10 +8,6 @@ import { visualizer } from 'rollup-plugin-visualizer'
 const isStorybook = process.env.VITE_IS_STORYBOOK === 'true'
 
 export default defineVitestConfig({
-  optimizeDeps: {
-    exclude: isStorybook ? [] : ['react', 'react-dom'],
-    include: ['@ark-ui/react'],
-  },
   plugins: [
     react(),
     viteTsconfigPaths(),
@@ -23,7 +19,6 @@ export default defineVitestConfig({
       copyDtsFiles: true,
       include: ['src/**/*', 'styled-system/**/*'],
       bundledPackages: ['@ark-ui/react'],
-
       compilerOptions: {
         preserveSymlinks: true,
         skipLibCheck: true,
@@ -34,7 +29,7 @@ export default defineVitestConfig({
         targets: [{ src: 'styled-system', dest: '' }],
       }),
     visualizer({
-      open: false,
+      open: true,
       filename: 'dist/stats.html',
       gzipSize: true,
       brotliSize: true,
@@ -48,23 +43,18 @@ export default defineVitestConfig({
       formats: ['es', 'cjs'],
     },
     rollupOptions: {
+      treeshake: true,
       external: isStorybook
         ? []
         : ['react', 'react-dom', /react-dom\/.*/, /^react\/.*/, '@nation-a/icons', '@nation-a/tokens', '@pandacss/dev'],
       output: {
         inlineDynamicImports: false,
-        manualChunks: {
-          'ark-ui': ['@ark-ui/react'],
-          'react-spring': ['@react-spring/web'],
-          'react-hot-toast': ['react-hot-toast'],
-          'react-lottie': ['react-lottie'],
-        },
       },
     },
     outDir: 'dist',
     sourcemap: true,
     minify: 'esbuild',
-    target: 'es2018',
+    target: 'esnext',
   },
   test: {
     globals: true,

@@ -1,4 +1,4 @@
-import { forwardRef, useState, useEffect } from 'react'
+import { forwardRef, lazy } from 'react'
 import { spinnerRecipe, SpinnerVariantProps } from './spinner.recipe'
 import { HTMLStyledProps } from '@styled-system/jsx'
 import SpinnerLottie from '@/assets/lotties/spinner.json'
@@ -11,31 +11,12 @@ export type SpinnerProps = HTMLStyledProps<'div'> &
     color?: UtilityValues['color']
   }
 
+const LottiePlayer = lazy(() => import('@lottiefiles/react-lottie-player').then((mod) => ({ default: mod.Player })))
+
 const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(({ className, size, color, ...props }, ref) => {
-  const [LottieComponent, setLottieComponent] = useState<null | React.ComponentType<any>>(null)
-
-  useEffect(() => {
-    import('react-lottie').then((mod) => {
-      setLottieComponent(() => mod.default)
-    })
-  }, [])
-
   return (
     <Box ref={ref} id={'spinner'} {...props} className={cx(spinnerRecipe({ size }), css({ color }), className)}>
-      {LottieComponent && (
-        <LottieComponent
-          options={{
-            loop: true,
-            autoplay: true,
-            animationData: SpinnerLottie,
-          }}
-          style={{
-            width: '100%',
-            height: '100%',
-          }}
-          isClickToPauseDisabled
-        />
-      )}
+      <LottiePlayer src={SpinnerLottie} loop autoplay style={{ width: '100%', height: '100%' }} />
     </Box>
   )
 })
